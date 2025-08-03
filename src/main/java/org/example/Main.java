@@ -12,16 +12,21 @@ public class Main {
         Wave wave2 = new Wave("2 Beats/Second", 2, 0.5f);
         Wave wave3 = new Wave("3 Beats/Second", 3, -0.25f);
 
+        List<Wave> waves = new ArrayList<>();
+        waves.add(wave2);
+        waves.add(wave3);
+
+        //Wave wave = Wave.Combine(waves);
         Wave wave = wave3;
 
-        ShowWave(wave);
-        ShowWaveAroundOrigin(wave, 3);
+        // ShowWave(wave);
+        // ShowWaveAroundOrigin(wave, 3);
         ShowFrequencyGraph(wave, 0, 4);
     }
 
     private static void ShowWave(Wave wave) {
         // W => Wave
-        Frame frame = new Frame("W: " + wave.GetWaveName(), wave.GetPoints());
+        Frame frame = new Frame("W: " + wave.GetWaveName(), wave.Normalize().GetPoints());
     }
 
     private static void ShowWaveAroundOrigin(Wave wave, float cyclesPerSecond) {

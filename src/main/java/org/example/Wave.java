@@ -16,6 +16,8 @@ public class Wave {
     private String WaveName;
 
     public Wave(String waveName, float frequency, float xOffset) {
+        WaveName = waveName;
+
         for (double x = 0; x <= end; x += step) {
             // x represents time in seconds
             double y = amplitude * Math.sin(2 * Math.PI * frequency * (x + xOffset));  // Corrected frequency calculation
