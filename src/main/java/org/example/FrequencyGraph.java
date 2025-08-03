@@ -18,7 +18,6 @@ public class FrequencyGraph {
             double y = Math.abs(getDistance(center, centerOfMass));
 
             points.add(new PointD(x, y));
-            System.out.println(x + " | " + y);
         }
     }
 
