@@ -38,7 +38,7 @@ public class Main {
 
     private static void ShowFrequencyGraph(Wave wave, float xMin, float xMax) {
         // FG => Frequency Graph Wave
-        FrequencyGraph graph = new FrequencyGraph(wave.Normalize(), xMin, xMax);
+        FrequencyGraph graph = new FrequencyGraph(wave, xMin, xMax);
         Frame frame = new Frame("FGW: " + wave.GetWaveName(), graph.GetPoints());
     }
 }
