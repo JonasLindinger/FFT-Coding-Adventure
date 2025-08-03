@@ -91,6 +91,25 @@ public class Wave {
         return newPoints;
     }
 
+    public PointD GetCenterOfMass(float cyclesPerSecond) {
+        var points = GetCircularPoints(cyclesPerSecond);
+        int length = points.size();
+
+        double totalX = 0;
+        double totalY = 0;
+
+        for (var point : points) {
+            totalX += point.x;
+            totalY += point.y;
+        }
+
+        double x = totalX / length;
+        double y = totalY / length;
+
+        return new PointD(x, y);
+
+    }
+
     private static double clampDegrees(double degrees) {
         // Zuerst den Winkel auf positiv normalisieren
         degrees = degrees % 360.0;
