@@ -37,9 +37,9 @@ public class PointDrawer extends JPanel {
                 PointD p2 = points.get(i + 1);
 
                 int x1 = (int) (p1.x * 100) + centerX;
-                int y1 = (int) (p1.y * 100) + centerY;
+                int y1 = (int) (-p1.y * 100) + centerY;  // Beachten Sie das negative Vorzeichen
                 int x2 = (int) (p2.x * 100) + centerX;
-                int y2 = (int) (p2.y * 100) + centerY;
+                int y2 = (int) (-p2.y * 100) + centerY;  // Beachten Sie das negative Vorzeichen
 
                 g.drawLine(x1, y1, x2, y2);
                 g.fillOval(x1 - POINT_SIZE/2, y1 - POINT_SIZE/2, POINT_SIZE, POINT_SIZE);
@@ -48,7 +48,7 @@ public class PointDrawer extends JPanel {
             if (!points.isEmpty()) {
                 PointD last = points.get(points.size() - 1);
                 int x = (int) (last.x * 100) + centerX;
-                int y = (int) (last.y * 100) + centerY;
+                int y = (int) (-last.y * 100) + centerY;  // Beachten Sie das negative Vorzeichen
                 g.fillOval(x - POINT_SIZE/2, y - POINT_SIZE/2, POINT_SIZE, POINT_SIZE);
             }
         }
@@ -57,7 +57,7 @@ public class PointDrawer extends JPanel {
         g.setColor(Color.BLUE);
         for (PointD point : singlePoints) {
             int x = (int) (point.x * 100) + centerX;
-            int y = (int) (point.y * 100) + centerY;
+            int y = (int) (-point.y * 100) + centerY;  // Beachten Sie das negative Vorzeichen
             g.fillOval(x - POINT_SIZE/2, y - POINT_SIZE/2, POINT_SIZE, POINT_SIZE);
         }
     }

@@ -7,13 +7,15 @@ import java.util.*;
 public class Wave {
     // Configuration
     private static final double amplitude = 1;  // Changed to 0.5 to prevent combined wave from going out of bounds
-    private static final double step = 0.01;      // Made smaller for smoother curve
+    public static final double step = 0.01;      // Made smaller for smoother curve
     private static final double end = 4.5f;  // 4.5 seconds (multiplied by 2π)
 
     private List<PointD> points = new ArrayList<>();
     private Map<Double, Double> pointMap = new HashMap<>();
 
-    public Wave(float frequency, float xOffset) {
+    private String WaveName;
+
+    public Wave(String waveName, float frequency, float xOffset) {
         for (double x = 0; x <= end; x += step) {
             // x represents time in seconds
             double y = amplitude * Math.sin(2 * Math.PI * frequency * (x + xOffset));  // Corrected frequency calculation
@@ -60,6 +62,10 @@ public class Wave {
         }
 
         return new Wave(points);
+    }
+
+    public String GetWaveName() {
+        return WaveName;
     }
 
     public List<PointD> GetPoints() {

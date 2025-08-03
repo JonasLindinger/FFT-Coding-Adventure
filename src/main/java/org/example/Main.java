@@ -9,23 +9,31 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Wave wave2 = new Wave(2, 0.5f);
-        Wave wave3 = new Wave(3, -0.25f);
+        Wave wave2 = new Wave("2 Beats/Second", 2, 0.5f);
+        Wave wave3 = new Wave("3 Beats/Second", 3, -0.25f);
 
-        Wave wave = wave3.Normalize();
+        Wave wave = wave3;
 
-        // Einzelne Wellen anzeigen
-        float cyclesPerSecond = 3f;
-        Frame frame = new Frame("Welle 2 (f=3)", wave.GetCircularPoints(cyclesPerSecond));
-        //frame.AddPoint(new PointD(0f, 0)); // Mark origin
-        PointD centerOfMass = wave.GetCenterOfMass(cyclesPerSecond);
-        frame.AddPoint(centerOfMass); // Mark origin
-        System.out.println(centerOfMass.x + " | " + centerOfMass.y);
+        ShowWave(wave);
+        ShowWaveAroundOrigin(wave, 3);
+        ShowFrequencyGraph(wave, 0, 4);
+    }
 
-        // Kombinierte Welle
-        // List<Wave> waves = new ArrayList<>();
-        // waves.add(wave2);
-        // waves.add(wave3);
-        // Wave combinedWave = Wave.Combine(waves);
+    private static void ShowWave(Wave wave) {
+        // W => Wave
+        Frame frame = new Frame("W: " + wave.GetWaveName(), wave.GetPoints());
+    }
+
+    private static void ShowWaveAroundOrigin(Wave wave, float cyclesPerSecond) {
+        // OW => Origin Wave
+        Frame frame = new Frame("OW: " + wave.GetWaveName(), wave.Normalize().GetCircularPoints(cyclesPerSecond));
+        frame.AddPoint(wave.Normalize().GetCenterOfMass(cyclesPerSecond)); // Show center of mass
+        frame.AddPoint(new PointD(0f, 0)); // Show center
+    }
+
+    private static void ShowFrequencyGraph(Wave wave, float xMin, float xMax) {
+        // FG => Frequency Graph Wave
+        FrequencyGraph graph = new FrequencyGraph(wave.Normalize(), xMin, xMax);
+        Frame frame = new Frame("FGW: " + wave.GetWaveName(), graph.GetPoints());
     }
 }
