@@ -9,17 +9,19 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Wave wave2 = new Wave("2 Beats/Second", 2, 0.5f);
+        Wave wave2 = new Wave("2 Beats/Second", 2, 0.125f);
         Wave wave3 = new Wave("3 Beats/Second", 3, -0.25f);
 
         List<Wave> waves = new ArrayList<>();
         waves.add(wave2);
         waves.add(wave3);
 
-        //Wave wave = Wave.Combine(waves);
-        Wave wave = wave3;
+        Wave wave = Wave.Combine(waves);
+        //Wave wave = wave3;
 
-        // ShowWave(wave);
+        ShowWave(wave2);
+        ShowWave(wave3);
+        ShowWave(wave);
         // ShowWaveAroundOrigin(wave, 3);
         ShowFrequencyGraph(wave, 0, 4);
     }
