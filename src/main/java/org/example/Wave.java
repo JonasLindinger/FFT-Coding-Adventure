@@ -8,7 +8,7 @@ public class Wave {
     // Configuration
     private static final double amplitude = 1;  // Changed to 0.5 to prevent combined wave from going out of bounds
     public static final double step = 0.01;      // Made smaller for smoother curve
-    private static final double end = 4.5f;  // 4.5 seconds (multiplied by 2π)
+    private static final double end = 100f;  // 4.5 seconds (multiplied by 2π)
 
     private List<PointD> points = new ArrayList<>();
     private Map<Double, Double> pointMap = new HashMap<>();

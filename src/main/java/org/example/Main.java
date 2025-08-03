@@ -22,8 +22,9 @@ public class Main {
         //ShowWave(wave2);
         //ShowWave(wave3);
         ShowWave(wave);
-        //ShowWaveAroundOrigin(wave, 3);
-        ShowFrequencyGraph(wave, 0, 4);
+        ShowWaveAroundOrigin(wave, 2);
+        ShowWaveAroundOrigin(wave, 98);
+        ShowFrequencyGraph(wave, 0, 100);
     }
 
     private static void ShowWave(Wave wave) {
