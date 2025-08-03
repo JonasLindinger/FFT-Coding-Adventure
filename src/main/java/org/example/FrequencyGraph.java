@@ -10,6 +10,7 @@ public class FrequencyGraph {
 
     public FrequencyGraph(Wave wave, float xMin, float xMax) {
         PointD center = new PointD(0, 0);
+        float multiplier = Math.abs(xMin + xMax);
 
         // Go through every x position of the graph, we want to create
         // x-coordinate for the center of mass
@@ -17,7 +18,7 @@ public class FrequencyGraph {
             PointD centerOfMass = wave.GetCenterOfMass(x);
             double y = Math.abs(getDistance(center, centerOfMass));
 
-            points.add(new PointD(x, y));
+            points.add(new PointD(x, y * multiplier));
         }
     }
 

@@ -19,10 +19,10 @@ public class Main {
         Wave wave = Wave.Combine(waves);
         //Wave wave = wave3;
 
-        ShowWave(wave2);
-        ShowWave(wave3);
+        //ShowWave(wave2);
+        //ShowWave(wave3);
         ShowWave(wave);
-        // ShowWaveAroundOrigin(wave, 3);
+        //ShowWaveAroundOrigin(wave, 3);
         ShowFrequencyGraph(wave, 0, 4);
     }
 
